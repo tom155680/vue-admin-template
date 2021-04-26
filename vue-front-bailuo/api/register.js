@@ -12,7 +12,7 @@ export default {
 
     registerMember(member){
         return request({
-            url:`/ucenter/register`,
+            url:`/api/ucenter/register`,
             method:'post',
             data:member
         })
