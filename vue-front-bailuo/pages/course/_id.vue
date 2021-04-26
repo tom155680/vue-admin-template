@@ -417,8 +417,23 @@ export default {
     //根据课程id，调用接口方法生成订单
     createOrder() {
       order.createOrder(this.courseWebVo.id).then((response) => {
-        this.$router.push({ path: "/order/" + response.data.data.orderId });
-      });
+       if(response.data.data.msg){
+        this.$confirm('您还未登录，是否前去登录', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning',
+          center: true
+        }).then(() => {
+          //跳转页面
+          window.location.href = "http://localhost:3000/user/login"
+        }).catch(() => {
+          //取消什么也不做
+        });
+       }else{
+         this.$router.push({ path: "/order/" + response.data.data.orderId });
+       }
+       
+      })
     },
   },
 };
