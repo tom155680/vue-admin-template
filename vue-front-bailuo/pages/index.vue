@@ -51,7 +51,7 @@
                         :alt="course.title"
                       />
                       <div class="cc-mask">
-                        <a href="#" title="开始学习" class="comm-btn c-btn-1"
+                        <a :href="'/course/'+course.id" title="开始学习" class="comm-btn c-btn-1"
                           >开始 学习</a
                         >
                       </div>
@@ -105,13 +105,13 @@
                 <li v-for="teacher in teacherList" :key="teacher.id">
                   <section class="i-teach-wrap">
                     <div class="i-teach-pic">
-                      <a href="/teacher/1" :title="teacher.name">
+                      <a :href="'/teacher/'+teacher.id" :title="teacher.name">
                         <img :alt="teacher.name" :src="teacher.avatar" />
                       </a>
                     </div>
                     <div class="mt10 hLh30 txtOf tac">
                       <a
-                        href="/teacher/1"
+                        :href="'/teacher/'+teacher.id"
                         :title="teacher.name"
                         class="fsize18 c-666"
                         >{{ teacher.name }}</a
